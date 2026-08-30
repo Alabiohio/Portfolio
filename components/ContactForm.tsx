@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { sendContactEmail } from "@/app/actions";
 
 const ContactForm: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,11 +14,15 @@ const ContactForm: React.FC = () => {
         setIsSubmitting(true);
         setStatus(null);
 
-        // Simulation of sending contact form data for the standalone app.
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            setStatus({ type: "success", message: "Message sent successfully!" });
-            event.currentTarget.reset();
+            const response = await sendContactEmail(formData);
+            setStatus({ type: response.type as "success" | "error", message: response.message });
+            if (response.type === "success") {
+                form.reset();
+            }
         } catch (error: unknown) {
             setStatus({ type: "error", message: "Failed to send message." });
         } finally {

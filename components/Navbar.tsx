@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
             <div className="max-w-6xl mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <div className="flex items-center">
-                    <span className="text-2xl font-bold tracking-widest text-foreground">Oheo</span>
+                    <span className="text-2xl font-bold tracking-widest text-foreground">Ohiocheoya Alabi</span>
                 </div>
 
                 {/* Desktop Links */}
