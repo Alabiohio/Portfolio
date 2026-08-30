@@ -1,36 +1,8 @@
 @import "tailwindcss";
 
-@property --accent {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #52A8FF;
-}
 
-@keyframes accent-switch {
-  0%, 15% {
-    --accent: #52A8FF;
-    --accent-rgb: 82, 168, 255;
-  }
-  25%, 40% {
-    --accent: #4ECDC4;
-    --accent-rgb: 78, 205, 196;
-  }
-  50%, 65% {
-    --accent: #8FA0AC;
-    --accent-rgb: 143, 160, 172;
-  }
-  75%, 90% {
-    --accent: #6C9EC2;
-    --accent-rgb: 108, 158, 194;
-  }
-  100% {
-    --accent: #52A8FF;
-    --accent-rgb: 82, 168, 255;
-  }
-}
 
 :root {
-  animation: accent-switch 20s infinite;
   --background: #f5f6f7;
   --foreground: #1A2229;
   --muted-foreground: #46515A;
@@ -105,92 +77,7 @@ body {
   padding: 0;
 }
 
-/* Organic Nebula Glows - Simplified for Performance */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(var(--accent-rgb), 0.05) 0%, transparent 45%),
-    radial-gradient(circle at 90% 10%, rgba(var(--secondary-rgb), 0.04) 0%, transparent 42%),
-    radial-gradient(circle at 50% 90%, rgba(var(--accent-rgb), 0.03) 0%, transparent 48%);
-  pointer-events: none;
-}
 
-/* Static Accent Glow */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), 0.08) 0%, transparent 68%);
-  pointer-events: none;
-}
-
-/* Lightweight Texturing */
-.bg-noise {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.025;
-  pointer-events: none;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-}
-
-/* Optimized Component Glows */
-.glow-spot {
-  position: absolute;
-  width: 40vw;
-  height: 40vw;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-  opacity: 0.035;
-  pointer-events: none;
-  z-index: -2;
-}
-
-.glow-accent {
-  background: var(--accent);
-}
-
-.glow-secondary {
-  background: var(--secondary);
-}
-
-/* Animated Beams */
-@keyframes beam-scroll {
-  0% {
-    transform: translateY(-100%) translateX(-100%) rotate(45deg);
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.06;
-  }
-
-  100% {
-    transform: translateY(200%) translateX(200%) rotate(45deg);
-    opacity: 0;
-  }
-}
-
-.background-beams {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.beam {
-  position: absolute;
-  width: 2px;
-  height: 40vh;
-  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-  filter: blur(1px);
-  animation: beam-scroll 10s infinite linear;
-}
 
 @keyframes gradient-x {
   0% {

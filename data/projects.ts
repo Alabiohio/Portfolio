@@ -136,7 +136,7 @@ export const projects: Project[] = [
             "Responsive Design",
             "UI/UX"
         ],
-        liveUrl: "In Development",
+        liveUrl: "https://logged.oheo.site",
         isFeatured: true,
     },
 

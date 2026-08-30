@@ -48,17 +48,7 @@ const PortfolioClient: React.FC<PortfolioClientProps> = ({ projects }) => {
 
     return (
         <div className="min-h-screen flex flex-col bg-background text-foreground selection:bg-accent selection:text-accent-foreground relative overflow-x-hidden">
-            {/* Background */}
-            <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="bg-noise" />
-                <div className="glow-spot glow-accent top-[20%] right-[-10%]" />
-                <div className="glow-spot glow-secondary bottom-[20%] left-[-10%]" />
-                <div className="background-beams">
-                    <div className="beam left-[15%] animation-delay-1" style={{ animationDuration: "11s" }} />
-                    <div className="beam left-[45%] animation-delay-3" style={{ animationDuration: "13s" }} />
-                    <div className="beam left-[75%] animation-delay-5" style={{ animationDuration: "16s" }} />
-                </div>
-            </div>
+
 
             <header className="z-50 relative">
                 <Navbar />

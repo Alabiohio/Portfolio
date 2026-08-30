@@ -19,6 +19,9 @@ const Footer: React.FC<FooterProps> = ({ linkTo = "/business", linkText = "Busin
                         <h4 className="text-white font-bold uppercase tracking-widest text-sm">Quick Links</h4>
                         <ul className="space-y-4 text-xl">
                             <li><Link href="/" className="text-white/60 hover:text-accent transition-colors">Home</Link></li>
+                            <li><Link href="/#skills" className="text-white/60 hover:text-accent transition-colors">Skills</Link></li>
+                            <li><Link href="/#projects" className="text-white/60 hover:text-accent transition-colors">Projects</Link></li>
+                            <li><Link href="/#contact" className="text-white/60 hover:text-accent transition-colors">Contact</Link></li>
                         </ul>
                     </div>
 
@@ -26,8 +29,7 @@ const Footer: React.FC<FooterProps> = ({ linkTo = "/business", linkText = "Busin
                     <div className="space-y-6">
                         <h4 className="text-white font-bold uppercase tracking-widest text-sm">Legal</h4>
                         <ul className="space-y-4 text-xl">
-                            <li><Link href="#" className="text-white/60 hover:text-accent transition-colors">Privacy Policy</Link></li>
-                            <li><Link href="#" className="text-white/60 hover:text-accent transition-colors">Terms of Service</Link></li>
+                            <li><Link href="/privacy" className="text-white/60 hover:text-accent transition-colors">Privacy Policy</Link></li>
                         </ul>
                     </div>
 
