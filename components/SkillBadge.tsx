@@ -19,52 +19,53 @@ interface SkillBadgeProps {
     large?: boolean;
 }
 
+export const getSkillIcon = (skill: string) => {
+    const lower = skill.toLowerCase();
+    
+    if (lower.includes("react")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg";
+    if (lower.includes("next.js") || lower.includes("nextjs")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg";
+    if (lower.includes("typescript")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg";
+    if (lower.includes("tailwind")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg";
+    if (lower.includes("javascript")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg";
+    if (lower.includes("html")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg";
+    if (lower.includes("css")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg";
+    if (lower.includes("node.js") || lower.includes("nodejs")) return "https://cdn.simpleicons.org/nodedotjs";
+    if (lower.includes("python")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg";
+    if (lower.includes("cloudflare")) return "https://cdn.simpleicons.org/cloudflare";
+    if (lower.includes("neon")) return "https://cdn.simpleicons.org/neon";
+    if (lower.includes("git") && !lower.includes("github")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg";
+    if (lower.includes("github")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg";
+    if (lower.includes("vercel")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg";
+    if (lower.includes("firebase")) return "/firebase.png";
+    if (lower.includes("foundation")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/foundation/foundation-original.svg";
+    if (lower.includes("bootstrap")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg";
+    if (lower.includes("postgresql") || lower.includes("postgres")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg";
+    if (lower.includes("supabase")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg";
+    if (lower.includes("google analytics")) return "/analytics.png";
+    if (lower.includes("search console") && !lower.includes("bing")) return "/gsc.png";
+    if (lower.includes("bing")) return "/bing.png";
+    if (lower.includes("figma")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg";
+    if (lower.includes("photoshop")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg";
+    if (lower.includes("illustrator")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg";
+    if (lower.includes("after effects")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg";
+    if (lower.includes("adobe")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg";
+
+    if (lower.includes("ui/ux")) return Palette;
+    if (lower.includes("seo")) return Search;
+    if (lower.includes("chatbot")) return Bot;
+    if (lower.includes("performance") || lower.includes("tuning")) return Gauge;
+    if (lower.includes("adobe") || lower.includes("creative")) return PenTool;
+    if (lower.includes("communication")) return MessageSquare;
+    if (lower.includes("teamwork") || lower.includes("collaboration")) return Users;
+    if (lower.includes("problem") || lower.includes("solving")) return Lightbulb;
+    if (lower.includes("time") || lower.includes("management")) return Clock;
+    if (lower.includes("critical") || lower.includes("thinking") || lower.includes("learning")) return Brain;
+    if (lower.includes("leadership") || lower.includes("management")) return Crown;
+
+    return Code;
+};
+
 const SkillBadge: React.FC<SkillBadgeProps> = ({ name, large }) => {
-    const getSkillIcon = (skill: string) => {
-        const lower = skill.toLowerCase();
-        
-        if (lower.includes("react")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg";
-        if (lower.includes("next.js") || lower.includes("nextjs")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg";
-        if (lower.includes("typescript")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg";
-        if (lower.includes("tailwind")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg";
-        if (lower.includes("javascript")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg";
-        if (lower.includes("html")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg";
-        if (lower.includes("css")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg";
-        if (lower.includes("node.js") || lower.includes("nodejs")) return "https://cdn.simpleicons.org/nodedotjs";
-        if (lower.includes("python")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg";
-        if (lower.includes("cloudflare")) return "https://cdn.simpleicons.org/cloudflare";
-        if (lower.includes("neon")) return "https://cdn.simpleicons.org/neon";
-        if (lower.includes("git") && !lower.includes("github")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg";
-        if (lower.includes("github")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg";
-        if (lower.includes("vercel")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg";
-        if (lower.includes("firebase")) return "/firebase.png";
-        if (lower.includes("foundation")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/foundation/foundation-original.svg";
-        if (lower.includes("bootstrap")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg";
-        if (lower.includes("postgresql") || lower.includes("postgres")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg";
-        if (lower.includes("supabase")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg";
-        if (lower.includes("google analytics")) return "/analytics.png";
-        if (lower.includes("search console") && !lower.includes("bing")) return "/gsc.png";
-        if (lower.includes("bing")) return "/bing.png";
-        if (lower.includes("figma")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg";
-        if (lower.includes("photoshop")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg";
-        if (lower.includes("illustrator")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg";
-        if (lower.includes("after effects")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg";
-        if (lower.includes("adobe")) return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg";
-
-        if (lower.includes("ui/ux")) return Palette;
-        if (lower.includes("seo")) return Search;
-        if (lower.includes("chatbot")) return Bot;
-        if (lower.includes("performance") || lower.includes("tuning")) return Gauge;
-        if (lower.includes("adobe") || lower.includes("creative")) return PenTool;
-        if (lower.includes("communication")) return MessageSquare;
-        if (lower.includes("teamwork") || lower.includes("collaboration")) return Users;
-        if (lower.includes("problem") || lower.includes("solving")) return Lightbulb;
-        if (lower.includes("time") || lower.includes("management")) return Clock;
-        if (lower.includes("critical") || lower.includes("thinking") || lower.includes("learning")) return Brain;
-        if (lower.includes("leadership") || lower.includes("management")) return Crown;
-
-        return Code;
-    };
 
     const iconOrComponent = getSkillIcon(name);
     const isUrl = typeof iconOrComponent === "string";

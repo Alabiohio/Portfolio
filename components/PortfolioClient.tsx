@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import ProjectCard from "@/components/ProjectCard";
-import SkillBadge from "@/components/SkillBadge";
+import { getSkillIcon } from "@/components/SkillBadge";
 import { Mail, Download, ArrowRight, MapPin, Briefcase, Code } from "lucide-react";
 import { FaXTwitter, FaTiktok, FaLinkedinIn, FaInstagram, FaThreads, FaSnapchat, FaGithub } from "react-icons/fa6";
 import profilePic from "../assets/img/profileImg.png";
@@ -63,12 +63,15 @@ const PortfolioClient: React.FC<PortfolioClientProps> = ({ projects }) => {
                             <div className="relative z-10">
                                 <h1 className="text-4xl sm:text-6xl md:text-[5rem] font-black leading-[1.05] tracking-tighter mb-6">
                                     Ohiocheoya <br className="hidden md:block" />
-                                    <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-                                        Alabi
-                                    </span>
+                                    Alabi Isaac
                                 </h1>
                                 <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
-                                    Full-Stack Developer crafting fast, scalable, and visually stunning web experiences with React & Next.js.
+                                    Full-Stack Developer specializing in Next.js and modern web
+                                    technologies, with experience developing scalable web
+                                    applications. Skilled in translating
+                                    complex requirements into reliable, user-focused digital
+                                    products, with growing expertise in machine learning,
+                                    software engineering, and intelligent systems
                                 </p>
                             </div>
                         </motion.div>
@@ -146,31 +149,54 @@ const PortfolioClient: React.FC<PortfolioClientProps> = ({ projects }) => {
 
 
                 {/* ─── SKILLS ───────────────────────────────────────────── */}
-                <section id="skills" className="py-24 px-4 max-w-7xl mx-auto relative">
-                    <motion.div {...fadeUp(0)} className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div>
-                            <h2 className="text-4xl md:text-6xl font-black tracking-tight">Skills & Tools</h2>
-                        </div>
-                        <p className="text-muted-foreground max-w-md leading-relaxed">
-                            I build products with a blend of engineering, product thinking, and visual craft to ship polished, user-first experiences.
-                        </p>
-                    </motion.div>
+                <section id="skills" className="py-24 px-4 mx-auto relative bg-muted-foreground overflow-hidden">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 blur-[120px] rounded-full pointer-events-none" />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {skillGroups.map((group, index) => (
-                            <motion.div
-                                key={group.title}
-                                {...fadeUp(index * 0.08)}
-                                className="rounded-[2rem] border border-glass-border bg-glass-bg p-6 md:p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
-                            >
-                                <h3 className="text-xl font-bold mb-5 text-foreground">{group.title}</h3>
-                                <div className="flex flex-wrap gap-3">
-                                    {group.skills.map((skill) => (
-                                        <SkillBadge key={skill} name={skill} />
-                                    ))}
-                                </div>
-                            </motion.div>
-                        ))}
+                    <div className="max-w-7xl mx-auto relative z-10">
+
+                        <motion.div {...fadeUp(0)} className="mb-16 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                            <div>
+                                <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-6">Skills & Tools</h2>
+                            </div>
+                            <p className="text-white/80 text-lg max-w-md leading-relaxed">
+                                I build products with a blend of engineering, product thinking, and visual craft to ship polished, user-first experiences.
+                            </p>
+                        </motion.div>
+
+                        <div className="flex flex-col gap-12 md:gap-16">
+                            {skillGroups.map((group, index) => (
+                                <motion.div
+                                    key={group.title}
+                                    {...fadeUp(index * 0.1)}
+                                    className="flex flex-col md:flex-row gap-6 md:gap-12 items-start border-b border-white/10 pb-12 last:border-0 last:pb-0"
+                                >
+                                    <div className="w-full md:w-1/3 flex-shrink-0 sticky top-24">
+                                        <h3 className="text-2xl font-black text-white">{group.title}</h3>
+                                        <div className="w-12 h-1 bg-accent mt-4 rounded-full" />
+                                    </div>
+
+                                    <div className="w-full md:w-2/3 flex flex-wrap gap-4">
+                                        {group.skills.map((skill) => {
+                                            const IconOrUrl = getSkillIcon(skill);
+                                            const isUrl = typeof IconOrUrl === "string";
+
+                                            return (
+                                                <div key={skill} className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/50 hover:-translate-y-1 transition-all duration-300 group/skill shadow-[0_4px_20px_-10px_rgba(0,0,0,0.5)]">
+                                                    <div className="flex-shrink-0 bg-black/20 p-2 rounded-xl border border-white/5 group-hover/skill:border-accent/30 transition-colors">
+                                                        {isUrl ? (
+                                                            <img src={IconOrUrl as string} alt={skill} className="w-10 h-10 object-contain group-hover/skill:scale-110 transition-transform" />
+                                                        ) : (
+                                                            <IconOrUrl className="w-10 h-10 text-accent group-hover/skill:scale-110 transition-transform" />
+                                                        )}
+                                                    </div>
+                                                    <span className="text-white/90 text-sm font-semibold tracking-wide group-hover/skill:text-white transition-colors">{skill}</span>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </section>
 
@@ -180,7 +206,6 @@ const PortfolioClient: React.FC<PortfolioClientProps> = ({ projects }) => {
 
                     <motion.div {...fadeUp(0)} className="mb-16 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <div>
-                            <span className="text-accent font-bold tracking-widest uppercase text-xs block mb-4">Selected Work</span>
                             <h2 className="text-4xl md:text-6xl font-black tracking-tight">Featured Projects</h2>
                         </div>
                         <p className="text-muted-foreground max-w-md leading-relaxed">

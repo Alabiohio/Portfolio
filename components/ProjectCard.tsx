@@ -82,10 +82,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                             stackClass = "opacity-100 translate-y-0 scale-100 blur-0 group-hover:scale-105";
                             zIndex = 30;
                         } else if (diff === 1) {
-                            stackClass = "opacity-60 -translate-y-4 md:-translate-y-6 scale-[0.95] blur-[1px]";
+                            stackClass = "opacity-80 -translate-y-6 md:-translate-y-8 scale-[0.95] blur-0";
                             zIndex = 20;
                         } else if (diff === 2 && total > 2) {
-                            stackClass = "opacity-30 -translate-y-8 md:-translate-y-12 scale-[0.90] blur-[3px]";
+                            stackClass = "opacity-50 -translate-y-12 md:-translate-y-16 scale-[0.90] blur-[1px]";
                             zIndex = 10;
                         } else {
                             stackClass = "opacity-0 translate-y-0 scale-[0.85] blur-[5px]";
@@ -126,10 +126,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
             {/* ── FOREGROUND LAYER (Content Block) ── */}
             {/* Mobile uses -mt-16, Desktop uses -mt-20 to pull the content card up over the image bottom */}
-            <div className="z-10 w-[92%] md:w-[85%] lg:w-[90%] mx-auto -mt-16 lg:-mt-20">
+            <div className="z-10 w-[96%] md:w-[85%] lg:w-[90%] mx-auto -mt-16 lg:-mt-20">
                 
                 {/* The Content Card */}
-                <div className="bg-background/80 backdrop-blur-3xl border border-glass-border p-8 md:p-10 lg:p-10 xl:p-12 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(var(--color-accent-rgb),0.2)] flex flex-col gap-6 relative overflow-hidden">
+                <div className="bg-background/80 backdrop-blur-3xl border border-glass-border px-5 py-8 md:p-10 lg:p-10 xl:p-12 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(var(--color-accent-rgb),0.2)] flex flex-col gap-6 relative overflow-hidden">
                     
                     {/* Decorative glow inside card */}
                     <div className="absolute top-0 right-0 w-48 h-48 bg-accent/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" />
@@ -155,16 +155,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     <p className="text-muted-foreground/90 leading-relaxed text-base md:text-lg font-light relative z-10">
                         {description}
                     </p>
-
-                    {/* Impact / Stats */}
-                    {impact && (
-                        <div className="flex items-start gap-4 bg-accent/5 rounded-2xl p-4 lg:p-5 border border-accent/10 relative z-10 mt-2">
-                            <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                                <Zap className="text-accent w-4 h-4" />
-                            </div>
-                            <p className="text-sm font-medium text-foreground/80 leading-relaxed">{impact}</p>
-                        </div>
-                    )}
 
                     {/* Roles & Tech Stack */}
                     <div className="mt-2 flex flex-col gap-4 lg:gap-5 relative z-10">
