@@ -32,8 +32,13 @@ const breeSerif = Bree_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ohioalabi.oheo.site"),
   title: "Ohiocheoya Alabi — Portfolio",
   description: "Full-Stack Developer specializing in React & Next.js",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
